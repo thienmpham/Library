@@ -32,3 +32,16 @@ function iterateMyLibrary() {
   }
 }
 iterateMyLibrary();
+
+function submitFormData() {
+  let title = document.querySelector("#title");
+  let author = document.querySelector("#author");
+  let pages = document.querySelector("#pages");
+  let submit = document.querySelector("#btn-submit");
+
+  submit.addEventListener("click", function () {
+    let newBook = new Book(title.value, author.value, pages.value);
+    console.log(newBook);
+  });
+}
+submitFormData();
