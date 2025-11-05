@@ -45,3 +45,9 @@ function submitFormData() {
   });
 }
 submitFormData();
+
+function checkFormsAreEmpty() {
+  //if html is empty
+  // use '' rather than null/empty
+  //then return true
+}
