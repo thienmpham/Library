@@ -39,6 +39,9 @@ function submitFormData() {
   let pages = document.querySelector("#pages");
   let submit = document.querySelector("#btn-submit");
 
+  let array = [title, author, pages, submit];
+  checkFormsAreEmpty(array);
+
   submit.addEventListener("click", function () {
     let newBook = new Book(title.value, author.value, pages.value);
     console.log(newBook);
@@ -46,8 +49,16 @@ function submitFormData() {
 }
 submitFormData();
 
-function checkFormsAreEmpty() {
+function checkFormsAreEmpty(array) {
   //if html is empty
   // use '' rather than null/empty
   //then return true
+
+  for (item of array) {
+    if (item.value === "") {
+      console.log("Form is empty!");
+      return true;
+    }
+  }
+  return false;
 }
