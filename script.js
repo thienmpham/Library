@@ -39,23 +39,25 @@ function submitFormData() {
   let pages = document.querySelector("#pages");
   let submit = document.querySelector("#btn-submit");
 
-  let array = [title, author, pages, submit];
-  checkFormsAreEmpty(array);
+  let array = [title, author, pages];
 
   submit.addEventListener("click", function () {
+    console.log(title.value);
+    console.log(author.value);
+    console.log(pages.value);
+    if (checkIfFormsAreEmpty(array) === true) {
+      console.log("Cannot submit!");
+      return;
+    }
     let newBook = new Book(title.value, author.value, pages.value);
     console.log(newBook);
   });
 }
 submitFormData();
 
-function checkFormsAreEmpty(array) {
-  //if html is empty
-  // use '' rather than null/empty
-  //then return true
-
+function checkIfFormsAreEmpty(array) {
   for (item of array) {
-    if (item.value === "") {
+    if (item.value == "") {
       console.log("Form is empty!");
       return true;
     }
