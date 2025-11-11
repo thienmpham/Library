@@ -41,7 +41,8 @@ function submitFormData() {
 
   let array = [title, author, pages];
 
-  submit.addEventListener("click", function () {
+  submit.addEventListener("click", function (e) {
+    e.preventDefault();
     console.log(title.value);
     console.log(author.value);
     console.log(pages.value);
