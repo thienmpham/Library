@@ -65,3 +65,13 @@ function checkIfFormsAreEmpty(array) {
   }
   return false;
 }
+
+//Goal
+// When the form is submitted, then
+// have the form info be made into a card
+
+//How
+// Add html content using javascript
+// On clicking the submit btn
+//* Add a child div to .container-card
+//* Then add h4 and h2 tags each with the .value method
