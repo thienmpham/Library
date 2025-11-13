@@ -39,6 +39,9 @@ function submitFormData() {
   let pages = document.querySelector("#pages");
   let submit = document.querySelector("#btn-submit");
 
+  let cardContainer = document.querySelector(".container-card");
+  let newDiv = document.createElement("div");
+
   let array = [title, author, pages];
 
   submit.addEventListener("click", function (e) {
@@ -52,6 +55,11 @@ function submitFormData() {
     }
     let newBook = new Book(title.value, author.value, pages.value);
     console.log(newBook);
+
+    // Creating card html
+    newDiv.classList.add("card");
+    cardContainer.appendChild(newDiv);
+    cardContainer.textContent = "New Div!";
   });
 }
 submitFormData();
@@ -73,5 +81,5 @@ function checkIfFormsAreEmpty(array) {
 //How
 // Add html content using javascript
 // On clicking the submit btn
-//* Add a child div to .container-card
+//* Add a child div to .container-card using appendChild
 //* Then add h4 and h2 tags each with the .value method
