@@ -27,12 +27,16 @@ function originalBooks() {
 originalBooks();
 
 function iterateMyLibrary(cardContainer, newDiv) {
-  for (book of myLibrary) {
+  for (let book of myLibrary) {
     console.log(book.title);
     // Creating card html
     newDiv.classList.add("card");
     cardContainer.appendChild(newDiv);
     newDiv.textContent = "New Div!";
+
+    newDiv.appendChild(document.createElement("h2")).textContent = book.title;
+    newDiv.appendChild(document.createElement("h4")).textContent = book.author;
+    newDiv.appendChild(document.createElement("h4")).textContent = book.pages;
   }
 }
 
@@ -48,6 +52,8 @@ function submitFormData() {
 
   submit.addEventListener("click", function (e) {
     let newDiv = document.createElement("div");
+    let newH2 = document.createElement("h2");
+    let newH4 = document.createElement("h4");
 
     e.preventDefault();
     console.log(title.value);
