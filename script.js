@@ -26,12 +26,15 @@ function originalBooks() {
 }
 originalBooks();
 
-function iterateMyLibrary() {
+function iterateMyLibrary(cardContainer, newDiv) {
   for (book of myLibrary) {
     console.log(book.title);
+    // Creating card html
+    newDiv.classList.add("card");
+    cardContainer.appendChild(newDiv);
+    newDiv.textContent = "New Div!";
   }
 }
-iterateMyLibrary();
 
 function submitFormData() {
   let title = document.querySelector("#title");
@@ -40,11 +43,12 @@ function submitFormData() {
   let submit = document.querySelector("#btn-submit");
 
   let cardContainer = document.querySelector(".container-card");
-  let newDiv = document.createElement("div");
 
   let array = [title, author, pages];
 
   submit.addEventListener("click", function (e) {
+    let newDiv = document.createElement("div");
+
     e.preventDefault();
     console.log(title.value);
     console.log(author.value);
@@ -54,12 +58,10 @@ function submitFormData() {
       return;
     }
     let newBook = new Book(title.value, author.value, pages.value);
+    addBookToLibrary(newBook);
     console.log(newBook);
 
-    // Creating card html
-    newDiv.classList.add("card");
-    cardContainer.appendChild(newDiv);
-    cardContainer.textContent = "New Div!";
+    iterateMyLibrary(cardContainer, newDiv);
   });
 }
 submitFormData();
