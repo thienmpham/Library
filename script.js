@@ -33,7 +33,6 @@ function iterateMyLibrary(cardContainer) {
     // Creating card html
     newDiv.classList.add("card");
     cardContainer.appendChild(newDiv);
-    newDiv.textContent = "New Div!";
 
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
     newDiv.appendChild(document.createElement("h4")).textContent = book.author;
@@ -53,6 +52,7 @@ function submitFormData() {
 
   submit.addEventListener("click", function (e) {
     e.preventDefault();
+    // document.querySelector(".card").remove();
     console.log(title.value);
     console.log(author.value);
     console.log(pages.value);
@@ -84,8 +84,19 @@ function checkIfFormsAreEmpty(array) {
 // When the form is submitted, then
 // have the form info be made into a card
 
+// **COMPLETED**
 //How
 // Add html content using javascript
 // On clicking the submit btn
 //* Add a child div to .container-card using appendChild
 //* Then add h4 and h2 tags each with the .value method
+
+//Goal
+// Check to see if myLibrary array has already
+// been iterated through and displayed in front end
+
+// **PENDING**
+//How
+// Check to see if document.querySelector('.card') is present within the html
+// If true then just display the newest book when
+// the submit button is clicked
