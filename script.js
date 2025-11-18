@@ -52,20 +52,22 @@ function submitFormData() {
 
   submit.addEventListener("click", function (e) {
     e.preventDefault();
+
     // document.querySelector(".card").remove();
     console.log(title.value);
     console.log(author.value);
     console.log(pages.value);
-    if (checkIfFormsAreEmpty(array) === true) {
-      console.log("Cannot submit!");
-      return;
-    }
 
     let newBook = new Book(title.value, author.value, pages.value);
     addBookToLibrary(newBook);
     console.log(newBook);
 
-    iterateMyLibrary(cardContainer);
+    if (checkHtmlContainsCard() == false) {
+      addLastBook(cardContainer);
+    } else {
+      console.log("card is not true");
+      iterateMyLibrary(cardContainer);
+    }
   });
 }
 submitFormData();
@@ -100,3 +102,27 @@ function checkIfFormsAreEmpty(array) {
 // Check to see if document.querySelector('.card') is present within the html
 // If true then just display the newest book when
 // the submit button is clicked
+
+function addLastBook(cardContainer) {
+  let newDiv = document.createElement("div");
+  // Creating card html
+  newDiv.classList.add("card");
+  cardContainer.appendChild(newDiv);
+
+  newDiv.appendChild(document.createElement("h2")).textContent =
+    myLibrary[myLibrary.length - 1].title;
+  newDiv.appendChild(document.createElement("h4")).textContent =
+    myLibrary[myLibrary.length - 1].author;
+  newDiv.appendChild(document.createElement("h4")).textContent =
+    myLibrary[myLibrary.length - 1].pages;
+}
+
+function checkHtmlContainsCard() {
+  console.log("checking:", document.querySelector(".card"));
+  if (document.querySelector(".card") === null) {
+    console.log("check is true");
+    return true;
+  }
+  console.log("check is false");
+  return false;
+}
