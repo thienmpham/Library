@@ -81,7 +81,7 @@ function checkIfFormsAreEmpty(array) {
   }
   return false;
 }
-
+// **COMPLETED**
 //Goal
 // When the form is submitted, then
 // have the form info be made into a card
@@ -93,11 +93,12 @@ function checkIfFormsAreEmpty(array) {
 //* Add a child div to .container-card using appendChild
 //* Then add h4 and h2 tags each with the .value method
 
+// **COMPLETED**
 //Goal
 // Check to see if myLibrary array has already
 // been iterated through and displayed in front end
 
-// **PENDING**
+// **COMPLETED**
 //How
 // Check to see if document.querySelector('.card') is present within the html
 // If true then just display the newest book when
@@ -126,3 +127,7 @@ function checkHtmlContainsCard() {
   console.log("check is false");
   return false;
 }
+
+//Goal
+// Have the original books already displayed and
+// then display the new books when submit btn is clicked on.
