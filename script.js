@@ -50,6 +50,7 @@ function submitFormData() {
 
   let array = [title, author, pages];
 
+  iterateMyLibrary(cardContainer);
   submit.addEventListener("click", function (e) {
     e.preventDefault();
 
