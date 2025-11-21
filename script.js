@@ -4,7 +4,9 @@ function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  //   this.status = status;
+
+  this.id = self.crypto.randomUUID();
+  console.log(this.id);
 }
 
 function addBookToLibrary(book) {
@@ -129,6 +131,15 @@ function checkHtmlContainsCard() {
   return false;
 }
 
+// **COMPLETED**
 //Goal
 // Have the original books already displayed and
 // then display the new books when submit btn is clicked on.
+
+// **COMPLETED**
+//Goal
+// Also, all of your book objects should have a unique id,
+// which can be generated using crypto.randomUUID()
+
+//How
+// Add the crypto.randomUUID() to Book constructor
