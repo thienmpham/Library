@@ -140,6 +140,13 @@ function checkHtmlContainsCard() {
 //Goal
 // Also, all of your book objects should have a unique id,
 // which can be generated using crypto.randomUUID()
-
+// **COMPLETED**
 //How
 // Add the crypto.randomUUID() to Book constructor
+
+//Goal
+// Set id of newDiv to be crypto.randomUUID()
+
+//How
+// Create a function to set id of each newDiv
+// in iterateMyLibary()
