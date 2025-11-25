@@ -60,7 +60,10 @@ function submitFormData() {
   iterateMyLibrary(cardContainer);
   submit.addEventListener("click", function (e) {
     e.preventDefault();
-
+    //stop function if form is empty
+    if (checkIfFormsAreEmpty(array) == true) {
+      return;
+    }
     // document.querySelector(".card").remove();
     console.log(title.value);
     console.log(author.value);
@@ -151,9 +154,21 @@ function checkHtmlContainsCard() {
 //How
 // Add the crypto.randomUUID() to Book constructor
 
+// **COMPLETED**
 //Goal
 // Set id of newDiv to be crypto.randomUUID()
-
+// **COMPLETED**
 //How
 // Create a function to set id of each newDiv
 // in iterateMyLibary()
+
+//Goal
+// Add the remove feature
+
+//How?
+// Add an x icon on the top right of each card
+
+function addImg() {
+  let newImg = document.createElement("img");
+  newImg.src = "x.svg";
+}

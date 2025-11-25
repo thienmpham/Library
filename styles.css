@@ -1,4 +1,36 @@
+:root {
+  font-size: 16px;
+  --gap: 10%;
+  --padding: 1rem calc(1rem - 2px);
+}
+body {
+  display: flex;
+  width: 100vw;
+  /* height: 100vw; */
+  gap: var(--gap);
+}
 #form-book {
   display: flex;
   flex-direction: column;
+  width: 40%;
+  gap: calc(var(--gap) - 4%);
+}
+.container-card {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+
+  /* justify-content: space-evenly; */
+  white-space: normal;
+  gap: calc(var(--gap) - 2%) var(--gap);
+  flex-wrap: wrap;
+}
+.card {
+  width: calc(33% - 1rem - var(--gap));
+  margin-bottom: calc(25px - 2%);
+  /* height: calc(100% - var(--padding)); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: var(--padding);
+}
+img .card-img {
 }
