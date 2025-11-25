@@ -31,9 +31,11 @@ originalBooks();
 function iterateMyLibrary(cardContainer) {
   for (let book of myLibrary) {
     let newDiv = document.createElement("div");
-    console.log(book.title);
+
+    console.log(book.id);
     // Creating card html
     newDiv.classList.add("card");
+    setBookId(book, newDiv);
     cardContainer.appendChild(newDiv);
 
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
@@ -42,6 +44,9 @@ function iterateMyLibrary(cardContainer) {
   }
 }
 
+function setBookId(book, newDiv) {
+  newDiv.setAttribute("id", book.id);
+}
 function submitFormData() {
   let title = document.querySelector("#title");
   let author = document.querySelector("#author");
@@ -109,16 +114,18 @@ function checkIfFormsAreEmpty(array) {
 
 function addLastBook(cardContainer) {
   let newDiv = document.createElement("div");
+  let lastBook = myLibrary[myLibrary.length - 1];
   // Creating card html
   newDiv.classList.add("card");
   cardContainer.appendChild(newDiv);
 
-  newDiv.appendChild(document.createElement("h2")).textContent =
-    myLibrary[myLibrary.length - 1].title;
+  newDiv.appendChild(document.createElement("h2")).textContent = lastBook.title;
   newDiv.appendChild(document.createElement("h4")).textContent =
-    myLibrary[myLibrary.length - 1].author;
-  newDiv.appendChild(document.createElement("h4")).textContent =
-    myLibrary[myLibrary.length - 1].pages;
+    lastBook.author;
+  newDiv.appendChild(document.createElement("h4")).textContent = lastBook.pages;
+
+  // set the id of the latest book added
+  setBookId(lastBook, newDiv);
 }
 
 function checkHtmlContainsCard() {
