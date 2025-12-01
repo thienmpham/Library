@@ -32,5 +32,11 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: var(--padding);
 }
-img .card-img {
+.card-img {
+  width: 5%;
+  object-fit: contain;
+  float: right;
+  background-color: red;
+  border-radius: 50%;
+  padding: 0.15rem;
 }

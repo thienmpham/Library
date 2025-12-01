@@ -37,6 +37,10 @@ function iterateMyLibrary(cardContainer) {
     newDiv.classList.add("card");
     setBookId(book, newDiv);
     cardContainer.appendChild(newDiv);
+    // let newImg = addImg();
+    // newDiv.appendChild(newImg);
+
+    addImg(newDiv);
 
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
     newDiv.appendChild(document.createElement("h4")).textContent = book.author;
@@ -168,7 +172,9 @@ function checkHtmlContainsCard() {
 //How?
 // Add an x icon on the top right of each card
 
-function addImg() {
+function addImg(div) {
   let newImg = document.createElement("img");
   newImg.src = "x.svg";
+  newImg.classList.add("card-img");
+  div.appendChild(newImg);
 }
