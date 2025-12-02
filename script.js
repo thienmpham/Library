@@ -178,3 +178,12 @@ function addImg(div) {
   newImg.classList.add("card-img");
   div.appendChild(newImg);
 }
+
+function removeCard() {
+  let card = document.querySelector(".card");
+  let exitBtn = document.querySelector("#btn-submit");
+
+  exitBtn.addEventListener("click", function () {
+    // remove card
+  });
+}
