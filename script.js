@@ -39,7 +39,7 @@ function iterateMyLibrary(cardContainer) {
     cardContainer.appendChild(newDiv);
 
     addImg(newDiv, book.id);
-
+    removeBook();
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
     newDiv.appendChild(document.createElement("h4")).textContent = book.author;
     newDiv.appendChild(document.createElement("h4")).textContent = book.pages;
@@ -176,15 +176,21 @@ function addImg(div, id) {
   newImg.setAttribute("data-id", id);
   newImg.classList.add("card-img");
   div.appendChild(newImg);
+
+  console.log("dataset:", newImg.dataset.id);
 }
 
-function removeCard() {
+function removeBook() {
   let card = document.querySelector(".card");
-  let exitBtn = document.querySelector("#btn-submit");
+  let exitBtn = document.querySelectorAll(".card-img");
 
-  exitBtn.addEventListener("click", function () {
-    // remove card
-    // associate the exit btn with the book object unique id
-    // by giving the exit btn a data attribute
-  });
+  for (i = 0; i < exitBtn.length; i++) {
+    exitBtn[i].addEventListener("click", function () {
+      // let element = document.querySelector(`#${exitBtn[i].data.id}`);
+      console.log(exitBtn[i].dataset.id);
+    });
+  }
+  // remove card
+  // associate the exit btn with the book object unique id
+  // by giving the exit btn a data attribute
 }
