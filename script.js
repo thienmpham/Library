@@ -185,9 +185,9 @@ function removeBook() {
   let exitBtn = document.querySelectorAll(".card-img");
 
   for (i = 0; i < exitBtn.length; i++) {
-    exitBtn[i].addEventListener("click", function () {
-      // let element = document.querySelector(`#${exitBtn[i].data.id}`);
-      console.log(exitBtn[i].dataset.id);
+    exitBtn[i].addEventListener("click", function (e) {
+      // let removedCard = document.querySelector(`#${e.target.dataset.id}`);
+      document.getElementById(`${e.target.dataset.id}`).remove();
     });
   }
   // remove card
