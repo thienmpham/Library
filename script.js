@@ -54,6 +54,7 @@ function submitFormData() {
   let author = document.querySelector("#author");
   let pages = document.querySelector("#pages");
   let submit = document.querySelector("#btn-submit");
+  let newDiv = document.createElement("div");
 
   let cardContainer = document.querySelector(".container-card");
 
@@ -77,6 +78,8 @@ function submitFormData() {
 
     if (checkHtmlContainsCard() == false) {
       addLastBook(cardContainer);
+      addImg(newDiv, myLibrary[myLibrary.length - 1].id);
+      console.log(myLibrary[myLibrary.length - 1].id);
     } else {
       console.log("card is not true");
       iterateMyLibrary(cardContainer);
