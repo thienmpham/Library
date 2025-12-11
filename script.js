@@ -49,6 +49,7 @@ function iterateMyLibrary(cardContainer) {
 function setBookId(book, newDiv) {
   newDiv.setAttribute("id", book.id);
 }
+
 function submitFormData() {
   let title = document.querySelector("#title");
   let author = document.querySelector("#author");
@@ -122,6 +123,7 @@ function addLastBook(cardContainer) {
   let lastBook = myLibrary[myLibrary.length - 1];
 
   addImg(newDiv, lastBook.id);
+
   // Creating card html
   newDiv.classList.add("card");
   cardContainer.appendChild(newDiv);
@@ -130,7 +132,7 @@ function addLastBook(cardContainer) {
   newDiv.appendChild(document.createElement("h4")).textContent =
     lastBook.author;
   newDiv.appendChild(document.createElement("h4")).textContent = lastBook.pages;
-
+  removeBook();
   // set the id of the latest book added
   setBookId(lastBook, newDiv);
 }
@@ -159,7 +161,7 @@ function checkHtmlContainsCard() {
 // Add the crypto.randomUUID() to Book constructor
 
 // **COMPLETED**
-//Goal
+// - Goal
 // Set id of newDiv to be crypto.randomUUID()
 // **COMPLETED**
 //How
