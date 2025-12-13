@@ -39,6 +39,8 @@ function iterateMyLibrary(cardContainer) {
     cardContainer.appendChild(newDiv);
 
     addImg(newDiv, book.id);
+    addReadStatus(newDiv);
+
     removeBook();
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
     newDiv.appendChild(document.createElement("h4")).textContent = book.author;
@@ -197,4 +199,28 @@ function removeBook() {
   // remove card
   // associate the exit btn with the book object unique id
   // by giving the exit btn a data attribute
+}
+
+// **READ STATUS**
+// - When read is clicked, it will change to different status
+// - Status: Read, Unread, Reading
+
+//  *Problem */
+// - I need to update for a specific read button rather
+// - than all of the read button statuses
+function addReadStatus(div) {
+  let statusArray = ["Unread", "Reading", "Read"];
+  count = 0;
+
+  let button = document.createElement("button");
+  button.classList.add("read-status");
+  div.appendChild(button);
+
+  //Initial read status is Unread
+  button.textContent = statusArray[0];
+
+  button.addEventListener("click", function () {
+    count++;
+    button.textContent = statusArray[count];
+  });
 }
