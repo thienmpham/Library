@@ -210,7 +210,7 @@ function removeBook() {
 // - than all of the read button statuses
 function addReadStatus(div) {
   let statusArray = ["Unread", "Reading", "Read"];
-  count = 0;
+  let count = 0;
 
   let button = document.createElement("button");
   button.classList.add("read-status");
@@ -219,8 +219,11 @@ function addReadStatus(div) {
   //Initial read status is Unread
   button.textContent = statusArray[0];
 
-  button.addEventListener("click", function () {
+  button.addEventListener("click", function (e) {
     count++;
+    if (count > statusArray.length - 1) {
+      count = 0;
+    }
     button.textContent = statusArray[count];
   });
 }
