@@ -8,6 +8,25 @@ function Book(title, author, pages) {
   this.id = self.crypto.randomUUID();
   console.log(this.id);
 }
+Book.prototype.addReadStatus = function (){
+  let statusArray = ["Unread", "Reading", "Read"];
+  let count = 0;
+
+  let button = document.createElement("button");
+  button.classList.add("read-status");
+  div.appendChild(button);
+
+  //Initial read status is Unread
+  button.textContent = statusArray[0];
+
+  button.addEventListener("click", function (e) {
+    count++;
+    if (count > statusArray.length - 1) {
+      count = 0;
+    }
+    button.textContent = statusArray[count];
+})
+}
 
 function addBookToLibrary(book) {
   if (typeof book !== "object") {
@@ -39,7 +58,7 @@ function iterateMyLibrary(cardContainer) {
     cardContainer.appendChild(newDiv);
 
     addImg(newDiv, book.id);
-    addReadStatus(newDiv);
+    // addReadStatus(newDiv);
 
     removeBook();
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
@@ -208,22 +227,22 @@ function removeBook() {
 //  *Problem */
 // - I need to update for a specific read button rather
 // - than all of the read button statuses
-function addReadStatus(div) {
-  let statusArray = ["Unread", "Reading", "Read"];
-  let count = 0;
+// function addReadStatus(div) {
+//   let statusArray = ["Unread", "Reading", "Read"];
+//   let count = 0;
 
-  let button = document.createElement("button");
-  button.classList.add("read-status");
-  div.appendChild(button);
+//   let button = document.createElement("button");
+//   button.classList.add("read-status");
+//   div.appendChild(button);
 
-  //Initial read status is Unread
-  button.textContent = statusArray[0];
+//   //Initial read status is Unread
+//   button.textContent = statusArray[0];
 
-  button.addEventListener("click", function (e) {
-    count++;
-    if (count > statusArray.length - 1) {
-      count = 0;
-    }
-    button.textContent = statusArray[count];
-  });
+//   button.addEventListener("click", function (e) {
+//     count++;
+//     if (count > statusArray.length - 1) {
+//       count = 0;
+//     }
+//     button.textContent = statusArray[count];
+//   });
 }
