@@ -8,25 +8,6 @@ function Book(title, author, pages) {
   this.id = self.crypto.randomUUID();
   console.log(this.id);
 }
-Book.prototype.addReadStatus = function (){
-  let statusArray = ["Unread", "Reading", "Read"];
-  let count = 0;
-
-  let button = document.createElement("button");
-  button.classList.add("read-status");
-  div.appendChild(button);
-
-  //Initial read status is Unread
-  button.textContent = statusArray[0];
-
-  button.addEventListener("click", function (e) {
-    count++;
-    if (count > statusArray.length - 1) {
-      count = 0;
-    }
-    button.textContent = statusArray[count];
-})
-}
 
 function addBookToLibrary(book) {
   if (typeof book !== "object") {
@@ -48,6 +29,7 @@ function originalBooks() {
 originalBooks();
 
 function iterateMyLibrary(cardContainer) {
+  console.log(myLibrary);
   for (let book of myLibrary) {
     let newDiv = document.createElement("div");
 
@@ -58,7 +40,7 @@ function iterateMyLibrary(cardContainer) {
     cardContainer.appendChild(newDiv);
 
     addImg(newDiv, book.id);
-    // addReadStatus(newDiv);
+    addReadStatus(newDiv);
 
     removeBook();
     newDiv.appendChild(document.createElement("h2")).textContent = book.title;
@@ -88,11 +70,6 @@ function submitFormData() {
     if (checkIfFormsAreEmpty(array) == true) {
       return;
     }
-    // document.querySelector(".card").remove();
-    console.log(title.value);
-    console.log(author.value);
-    console.log(pages.value);
-
     let newBook = new Book(title.value, author.value, pages.value);
     addBookToLibrary(newBook);
     console.log(newBook);
@@ -144,6 +121,7 @@ function addLastBook(cardContainer) {
   let lastBook = myLibrary[myLibrary.length - 1];
 
   addImg(newDiv, lastBook.id);
+  addReadStatus(newDiv);
 
   // Creating card html
   newDiv.classList.add("card");
@@ -227,22 +205,22 @@ function removeBook() {
 //  *Problem */
 // - I need to update for a specific read button rather
 // - than all of the read button statuses
-// function addReadStatus(div) {
-//   let statusArray = ["Unread", "Reading", "Read"];
-//   let count = 0;
+function addReadStatus(div) {
+  let statusArray = ["Unread", "Reading", "Read"];
+  let count = 0;
 
-//   let button = document.createElement("button");
-//   button.classList.add("read-status");
-//   div.appendChild(button);
+  let button = document.createElement("button");
+  button.classList.add("read-status");
+  div.appendChild(button);
 
-//   //Initial read status is Unread
-//   button.textContent = statusArray[0];
+  //Initial read status is Unread
+  button.textContent = statusArray[0];
 
-//   button.addEventListener("click", function (e) {
-//     count++;
-//     if (count > statusArray.length - 1) {
-//       count = 0;
-//     }
-//     button.textContent = statusArray[count];
-//   });
+  button.addEventListener("click", function (e) {
+    count++;
+    if (count > statusArray.length - 1) {
+      count = 0;
+    }
+    button.textContent = statusArray[count];
+  });
 }
